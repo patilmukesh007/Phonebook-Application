@@ -35,4 +35,14 @@ public class ContactServiceImpl implements ContactServiceI {
 		Contact findById = contactRepo.findById(cid).get();
 		return findById;
 	}
+	
+	@Override
+	public boolean updateContact(Contact contact) {
+		Contact update = contactRepo.save(contact);
+		if(update==null) {
+			return false;
+		}else {
+		return true;
+		}
+	}
 }
