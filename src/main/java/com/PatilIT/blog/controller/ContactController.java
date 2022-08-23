@@ -33,5 +33,14 @@ public class ContactController {
 			return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	@GetMapping(value = "/getAllContact", produces = "application/json")
+	public ResponseEntity<List<Contact>> getAllContact() {
+		List<Contact> allContact = contactServiceI.getAllContact();
+		if(allContact!=null) {
+			return new ResponseEntity<List<Contact>>(allContact, HttpStatus.OK);
+		}else {
+			String msg="Data not Found";
+		return new ResponseEntity(msg, HttpStatus.BAD_REQUEST);
+		}
+		}
 }

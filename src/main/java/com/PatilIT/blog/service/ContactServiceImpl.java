@@ -23,6 +23,11 @@ public class ContactServiceImpl implements ContactServiceI {
 		return false;
 	}
 	}
-
+     
+	@Override
+	public List<Contact> getAllContact() {
+		List<Contact> allContact = contactRepo.findAll();
+		return allContact;
+	}
 	
 }
