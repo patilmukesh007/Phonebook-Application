@@ -30,4 +30,9 @@ public class ContactServiceImpl implements ContactServiceI {
 		return allContact;
 	}
 	
+	@Override
+	public Contact getContactById(Integer cid) {
+		Contact findById = contactRepo.findById(cid).get();
+		return findById;
+	}
 }

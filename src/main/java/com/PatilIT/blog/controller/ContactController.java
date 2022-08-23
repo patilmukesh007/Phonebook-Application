@@ -43,4 +43,10 @@ public class ContactController {
 		return new ResponseEntity(msg, HttpStatus.BAD_REQUEST);
 		}
 		}
+	
+	@GetMapping(value = "/getContactById/{cId}", produces = "application/json")
+	public ResponseEntity<Contact> getContactById(@PathVariable Integer cId) {
+		Contact contactById = contactServiceI.getContactById(cId);
+		return new ResponseEntity<Contact>(contactById, HttpStatus.OK);
+		}
 }
