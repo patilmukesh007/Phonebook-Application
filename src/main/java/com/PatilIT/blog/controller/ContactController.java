@@ -76,4 +76,14 @@ public class ContactController {
 		
 	}
 	
+	@DeleteMapping(value="/softDeleteById/{cid}")
+	public ResponseEntity<String> softDeleteById(@PathVariable Integer cid){
+		 boolean softContactDeleteById = contactServiceI.softContactDeleteById(cid);
+		if(softContactDeleteById) {
+			return new ResponseEntity<String>("Record Deleted Successfully", HttpStatus.OK);
+		}
+		return new ResponseEntity<String>("Record Not Deleted", HttpStatus.BAD_REQUEST);
+		
+	}
+	
 }

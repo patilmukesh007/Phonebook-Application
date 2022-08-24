@@ -66,4 +66,17 @@ public class ContactServiceImpl implements ContactServiceI {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean softContactDeleteById(Integer cid) {
+		 Optional<Contact> findById = contactRepo.findById(cid);
+		if(findById.isPresent()) {
+			Contact contact = findById.get();
+			contact.setActiveSwitch('N');
+			contactRepo.save(contact);
+			return true;
+		}else {
+		return false;
+		}
+	}
 }
