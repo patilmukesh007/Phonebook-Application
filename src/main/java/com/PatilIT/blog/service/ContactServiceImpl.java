@@ -1,6 +1,7 @@
 package com.PatilIT.blog.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,26 @@ public class ContactServiceImpl implements ContactServiceI {
 			return false;
 		}else {
 		return true;
+		}
+	}
+
+	@Override
+	public boolean hardDeleteById(Integer cid) {
+		
+//		boolean existsById = contactRepo.existsById(cid);
+//		if(existsById) {
+//		contactRepo.deleteById(cid);
+//		return true;
+//		}else {
+//			return false;
+//		}
+		
+		Optional<Contact> findById = contactRepo.findById(cid);
+		if(findById.isPresent()) {
+			contactRepo.deleteById(cid);
+			return true;
+		}else {
+			return false;
 		}
 	}
 }

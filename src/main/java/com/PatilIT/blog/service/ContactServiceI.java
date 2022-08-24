@@ -16,5 +16,9 @@ public interface ContactServiceI {
 	 Contact getContactById(Integer cid);
 	 
 	   boolean updateContact(Contact contact);
+	   
+	   boolean hardDeleteById(Integer cid);
+	   
+	  
 
 }
